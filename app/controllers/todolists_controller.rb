@@ -3,7 +3,7 @@ class TodolistsController < ApplicationController
    @book = Book.new
   end
   
-def create
+  def create
 
     list = List.new(list_params)
 
@@ -16,10 +16,14 @@ def create
     @books = Book.all
   end
   
-  
   private
   def list_params
     params.require(:list).permit(:title, :body)
   end
+  
+  def edit
+   @book = Book.find(params[:id])
+  end
+ 
  
 end
